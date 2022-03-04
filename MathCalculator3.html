@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    
+<style>
+body {
+    background-color:lightblue;
+}
+#input1,#input2,#input3,#input4 {
+    width : 200px ;
+    height : 50px ;
+    box-shadow: 3px 3px 3px gray;
+    border : none ; 
+    font-size: 32px ; 
+}
+#lbl1,#lbl2 {
+    background-color: lightcyan ;
+    padding : 10px ;
+    font-size : 40px ;
+    font-family: fantasy ; 
+}
+#label,#label1,#label2,#label3,#label4,#label5 {
+    height:50px ;
+    width:200px ;
+    font-size:32px ;
+    font-family:cursive ;
+}
+select {
+    height:70px;
+    width:80px;
+    font-size : 30px ;
+    background-color: lightcyan;
+    box-shadow: 3px 3px 3px gray;
+}
+#op,#Lop {
+    height: 75px;
+    width: 125px;
+    border: none;
+    box-shadow: 3px 3px 3px gray;
+    font-size: 30px;
+    font-family: cursive;
+}
+button {
+    height: 50px;
+    width: 150px;
+    border: none;
+    font-family: cursive;
+    font-size: 30px;
+    box-shadow: 3px 3px 3px gray;
+}
+</style>
+
+<label id="lbl1">Luas Lingkaran</label> <br><br>
+<label id="label1">Radius : </label>
+<input id="input1" type="Number"> <br>
+<label id="label2">π : </label> <br>
+<select id="op">
+    <option value="22/7" >22/7</option>
+    <option value="3.14" >3.14</option>
+</select> <br><br>
+<label id="label">Area : </label>
+<input id="input2" type="Number"> <br><br>
+<button onclick="luasLingkaran();">Submit</button>
+<br><br><br>
+
+<label id="lbl2">Keliling Lingkaran</label> <br><br>
+<label id="label3">Radius : </label>
+<input id="input3" type="Number"> <br>
+<label id="label4">π : </label> <br>
+<select id="Lop">
+    <option value="22/7 pi" >22/7</option>
+    <option value="3.14 pi" >3.14</option>
+</select> <br><br>
+<label id="label5">Keliling : </label>
+<input id="input4" type="Number"> <br><br>
+<button onclick="kelilingLingkaran();">Submit</button>
+
+
+<script>
+function luasLingkaran() {
+    var radius = parseInt(document.getElementById("input1").value);
+    var pi = document.getElementById("op").value;
+    var area = parseInt(document.getElementById("input2").value);
+
+    if (isNaN(area) && isNaN(radius)) {
+        alert("Tolong isi salah satu")
+    } else if (isNaN(area)) {
+        if (isNaN(radius)) {
+            alert("Tolong isi radius nya")
+        } else if (pi=="22/7") {
+            var luas = 22/7 * radius * radius;
+            alert("Luas lingkaran dari jari-jari "+radius+" adalah "+luas);
+        } else {
+            var luas = 3.14 * radius * radius;
+            alert("Luas lingkaran dari jari-jari "+radius+" adalah "+luas);
+        }
+    } else if (isNaN(radius)) {
+        if(isNaN(area)) {
+            alert("Tolong isi area nya");
+        } else if (pi=="22/7") {
+            var jarijari = area * 7 / 22;
+            var jarijari2 = Math.sqrt(jarijari)
+            var jarijari3 = "√"+jarijari
+            alert("Jari-jarinya dari luas "+area+" adalah "+jarijari2+" atau "+jarijari3);
+        } else {
+            var jarijari = area / 3.14
+            var jarijari2 = Math.sqrt(jarijari)
+            var jarijari3 = "√"+jarijari
+            alert("Jari-jarinya dari luas "+area+" adalah "+jarijari2+" atau "+jarijari3);
+        } 
+    } else {
+        alert("Tolong isi salah satu");
+    }
+}
+
+function kelilingLingkaran() {
+    var radius2 = parseInt(document.getElementById("input3").value);
+    var keliling = parseInt(document.getElementById("input4").value);
+    var pi = document.getElementById("Lop").value;
+
+    if (isNaN(radius2) && isNaN(keliling)) {
+        alert("Tolong isi salah satu");
+    } else if (isNaN(radius2)) {
+        if (isNaN(keliling)) {
+            alert("Tolong isi keliling")
+        } else if(pi=="22/7 pi") {
+            var jarijari4 = keliling * 7 / 44 
+            alert("Jari-jari dari keliling "+keliling+" adalah "+jarijari4);
+        } else {
+            var jarijari4 = keliling / 6.28
+            alert("Jari-jari dari keliling "+keliling+" adalah "+jarijari4);
+        }
+    } else if (isNaN(keliling)) {
+        if (isNaN(radius2)) {
+            alert("Tolong isi radius")
+        } else if(pi=="22/7 pi") {
+            var keliling2 = 2 * 22 / 7 * radius2
+            alert("Keliling dari jari-jari "+radius2+" adalah "+keliling2);
+        } else {
+            var keliling2 = 2 * 3.14 * radius2
+            alert("Keliling dari jari-jari "+radius2+" adalah "+keliling2);
+        }
+    } else {
+        alert("Tolong isi salah satu")
+    }
+}
+    </script>
+</body>
+</html>
